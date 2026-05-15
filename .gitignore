@@ -1,0 +1,28 @@
+# Maven
+target/
+*.class
+
+# Java
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Atl (local agent tool)
+.atl/
+
+# Logs
+*.log
+
+# Temporary
+/tmp/
