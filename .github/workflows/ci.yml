@@ -27,10 +27,10 @@ jobs:
           restore-keys: ${{ runner.os }}-m2-
 
       - name: Compile
-        run: ./mvnw compile --enable-preview -q
+        run: mvn compile --enable-preview -q
 
       - name: Test
-        run: ./mvnw test -q
+        run: mvn test -q
 
       - name: Verify
-        run: ./mvnw verify -q
+        run: mvn verify -q
