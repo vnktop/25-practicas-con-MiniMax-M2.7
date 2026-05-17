@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "🔍 Validando commit..."
+
+# 1. Conventional commits
+COMMIT_MSG=$(cat .git/COMMIT_EDITMSG)
+if ! echo "$COMMIT_MSG" | grep -qE "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+"; then
+    echo "❌ conventional commits: tipo(alcance): descripción"
+    exit 1
+fi
+
+# 2. Tests compilando
+./mvnw test-compile -q
+if [ $? -ne 0 ]; then
+    echo "❌ Tests no compilan"
+    exit 1
+fi
+
+echo "✅ Commit aprobado"
